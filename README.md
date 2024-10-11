@@ -51,14 +51,14 @@ Once the eigenvectors of $\mathbf{A}^T\mathbf{A}$ are found and transformed to b
 
 ```math
 \begin{equation}
-    \mathbf{w_{ij} = }\frac{255 \mathbf{(u_{ij} - u_{\text{min}})}}{\mathbf{u_{\text{max }- u_{\text{min}}}}}
+    \mathbf{w_{ij} = } \frac{255 \mathbf{(u_{ij} - u_{\text{min}})}}{\mathbf{u_{\text{max }- u_{\text{min}}}}}
 \end{equation}
 ```
 where $\mathbf{w_{ij}}$ represents integer values between $[0,255]$. In projecting these basis vectors back into the image space, we see that each eigenvector looks like a "ghost face", which is why they are typically referred to as eigenfaces. We can reconstruct any image $x$ in the image gallery by using the equation
 
 ```math
 \begin{equation}
-    \mathbf{x - \bar{x}} \approx \sum\limits_{i=1}^{M}\mathbf{y_iu_i}
+    \mathbf{x - \bar{x}} \approx \sum\limits_{i=1}^{M} \mathbf{y}_{i} \mathbf{u}_{i}
 \end{equation}
 ```
 
@@ -66,7 +66,7 @@ where $\mathbf{y_i}$ is an eigen-coefficient which describes the weight of each 
 
 ```math
 \begin{equation}
-    \mathbf{\hat{x} - \bar{x}} \approx \sum\limits_{i=1}^{K}\mathbf{y_iu_i}.
+    \mathbf{\hat{x} - \bar{x}} \approx \sum\limits_{i=1}^{K}\mathbf{y}_{i} \mathbf{u}_{i}.
 \end{equation}
 ```
 
