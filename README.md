@@ -6,21 +6,23 @@ implementation of EigenFace theory for pattern recognition course
 PCA is a method of dimensionality reduction. The goal of PCA is to find a basis of eigenvectors (i.e., principle components) which describes the data. PCA is useful in that it de-correlates the data and preserves original variances of the data. This allows one to reduce the number of dimensions of their data for classification while still preserving a large amount of information/variance in the data. To perform PCA on a database of images, the database of images must first be shaped into an array of shape $(H\text{x}W, M)$, where $M$ is the total number of images, $H$ is the height of each image, and $W$ is the width of each image. Given a database of images, the sample mean of the images can be computed as
 
 ```math
-\begin{equation}
+
     \mathbf{\bar{x}} = \frac{1}{M}\sum\limits_{i=1}^{M}\mathbf{x_i}.
-\end{equation}
+
 ```math
 
 Once the sample mean is computed, it is subtracted from each image ($\Phi_i = \mathbf{x} - \mathbf{\bar{x}}$) so that the data is centered at zero. The resulting matrix of images is then $\mathbf{A}=[\Phi_1 \Phi_2 ... \Phi_M]$. Once the data is centered, we can compute the sample covariance matrix such that
+
 ```math
-\begin{equation}
+
 \begin{aligned} 
     \mathbf{\Sigma_x} &= \frac{1}{M}\sum_{i = 1}^M(\mathbf{x} - \mathbf{\Bar{x}})(\mathbf{x} - \mathbf{\Bar{x}})^\top \nonumber\\
         &= \frac{1}{M}\sum_{i = 1}^{M}\mathbf{\Phi}_i\mathbf{\Phi}_i^\top \\
             &= \frac{1}{M}\mathbf{A}\mathbf{A}^\top. \\
 \end{aligned}
-\end{equation}
+
 ```
+
 Next, we can compute the eigenvectors and eigenvalues of $\Sigma_x$ using the formula $\mathbf{\Sigma_x}\mathbf{u_i} = \lambda_i\mathbf{u}_i$. In practice, this is computationally expensive, since $\mathbf{AA}^T$ is of shape ($H\text{x}W, H\text{x}W$). Therefore, instead of using the matrix $\mathbf{AA}^T$, we can instead use the matrix $\mathbf{A}^T\mathbf{A}$, which is of size ($M\text{x}M$) and is generally significantly smaller than $\mathbf{AA}^T$ ($M<<H\text{x}W$). This "trick" can be performed due to the relationship between the two matrices, where if we assume that $(\mathbf{AA}^T)\mathbf{v}_i=\mathbf{u}_i\mathbf{v}_i$ and $(\mathbf{A}^T\mathbf{A})\mathbf{v}_i=\mathbf{
 \mu_i}\mathbf{v}_i$, then, multiplying both sides by $\mathbf{A}$ gives
 
