@@ -9,7 +9,7 @@ PCA is a method of dimensionality reduction. The goal of PCA is to find a basis 
 \begin{equation}
     \mathbf{\bar{x}} = \frac{1}{M}\sum\limits_{i=1}^{M}\mathbf{x_i}.
 \end{equation}
-```math
+```
 
 Once the sample mean is computed, it is subtracted from each image ($\Phi_i = \mathbf{x} - \mathbf{\bar{x}}$) so that the data is centered at zero. The resulting matrix of images is then $\mathbf{A}=[\Phi_1 \Phi_2 ... \Phi_M]$. Once the data is centered, we can compute the sample covariance matrix such that
 
