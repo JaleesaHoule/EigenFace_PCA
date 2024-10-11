@@ -16,7 +16,7 @@ Once the sample mean is computed, it is subtracted from each image ($\Phi_i = \m
 ```math
 \begin{equation}
 \begin{aligned} 
-    \mathbf{\Sigma_x} &= \frac{1}{M}\sum_{i = 1}^M(\mathbf{x} - \mathbf{\Bar{x}})(\mathbf{x} - \mathbf{\Bar{x}})^\top \nonumber\\
+    \mathbf{\Sigma_x} &= \frac{1}{M}\sum_{i = 1}^M(\mathbf{x} - \mathbf{ \bar{x}})(\mathbf{x} - \mathbf{ \bar{x}})^\top \nonumber\\
         &= \frac{1}{M}\sum_{i = 1}^{M}\mathbf{\Phi}_i\mathbf{\Phi}_i^\top \\
             &= \frac{1}{M}\mathbf{A}\mathbf{A}^\top. \\
 \end{aligned}
@@ -27,10 +27,10 @@ Next, we can compute the eigenvectors and eigenvalues of $\Sigma_x$ using the fo
 
 ```math
 \begin{equation}
-
+\begin{aligned} 
     \mathbf{A}(\mathbf{A}^\top\mathbf{A}) \mathbf{v}_i &= \mathbf{A}\mu_i\mathbf{v}_i  \text{ , i.e., } \\ 
         (\mathbf{A}\mathbf{A}^\top)\mathbf{A} \mathbf{v}_i &= \mu_i(\mathbf{A}\mathbf{v}_i). \\ 
-
+\end{aligned} 
 \end{equation}
 ```
 If we also assume that $(\mathbf{AA}^T)\mathbf{v}_i =  \mathbf{\lambda}_i\mathbf{u}_i$, then this manipulation shows that
